@@ -63,13 +63,12 @@ class HomePage(MainWindow):
         self.setWindowTitle("Python LifeHacks Tool")
 
         # Boutton pour accéder au cve checker
-        self.cvecheckButton = QPushButton("Excel")
-        self.cvecheckButton.clicked.connect(self.show_excel_page)       
+        self.excel_page_button = QPushButton("Excel")
+        self.excel_page_button.clicked.connect(self.show_excel_page)       
         
         # Import des éléments dans la page
         layout = QVBoxLayout()
-        layout.addWidget(self.cvecheckButton)
-        layout.addWidget(self.reportButton)
+        layout.addWidget(self.excel_page_button)
 
         container = QWidget()
         container.setLayout(layout)

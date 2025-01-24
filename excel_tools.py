@@ -10,7 +10,6 @@ def read_xlsx_file(file:str):
     return result.value
 
 
-
 def create_excel(filename:str) :
     book_obj = pyxl.Workbook()
     excel_sheet = book_obj.active

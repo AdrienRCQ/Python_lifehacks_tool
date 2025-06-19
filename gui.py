@@ -17,7 +17,7 @@ from PyQt6.QtGui import QAction, QIcon
 from PyQt6.QtCore import Qt, QSize
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
 
-from excel_tools import create_excel, read_xlsx_file
+from Metrics_getter import metrics_getter, cpu_alerte
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -60,10 +60,10 @@ class MainWindow(QMainWindow):
 class HomePage(MainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Python LifeHacks Tool")
+        self.setWindowTitle("Python Tools Box")
 
         # Boutton pour accéder au cve checker
-        self.excel_page_button = QPushButton("Excel")
+        self.excel_page_button = QPushButton("Admin System")
         self.excel_page_button.clicked.connect(self.show_excel_page)       
         
         # Import des éléments dans la page
@@ -84,23 +84,23 @@ class HomePage(MainWindow):
 
 # ---------------------------------------------------------------------------
 
-class ExcelTools(MainWindow):
+class AdminsysTools(MainWindow):
     """
     L'objectif de cette classe est de regrouper les fonctionnalités liés 
-    à la manipulation d'un fichier excel
+    à de l'administration système linux
     """
     def __init__(self):
         super().__init__()
 
         self.setWindowTitle("Home Page")
 
-        # Boutton pour google chrome
-        self.googleButton = QPushButton("Create an exel")
-        self.googleButton.clicked.connect(create_excel)    
+        # Boutton pour vérifier l'usage du cpu actuel
+        self.cpuButton = QPushButton("Get CPU usage")
+        self.cpuButton.clicked.connect(cpu_alerte)    
 
         # Import des éléments dans la page
         layout = QVBoxLayout()
-        layout.addWidget(self.googleButton)
+        layout.addWidget(self.cpuButton)
 
         container = QWidget()
         container.setLayout(layout)

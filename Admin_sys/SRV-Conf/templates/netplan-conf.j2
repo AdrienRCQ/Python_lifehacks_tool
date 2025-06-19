@@ -1,0 +1,14 @@
+#network:
+  version: 2
+  renderer: networkd
+  ethernets:
+  {% for interface in interfaces %}
+    {{interface.name}}:
+      dhcp4: false
+      dhcp6: false
+      addresses:
+      -  {{interface.ip}}/{{interface.mask}}
+      routes:
+      - to: default
+        via: {{interface.gateway}}
+  {% endfor %}
